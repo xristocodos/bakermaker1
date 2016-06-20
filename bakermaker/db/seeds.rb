@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+# http://www.marthastewart.com/344840/soft-and-chewy-chocolate-chip-cookies
 chocochips_tho = Recipe.create!(
   title: "Fire Chocochip Cookielopolouses",
   alias: "Baby Carrots",
-  props_to: "Xristo",
+  shoutout_to: "Xristo",
   difficulty: 2,
   recipe_content: "make all the things in the bowl with the stuff and then mix and bake",
   cost: 28.77,

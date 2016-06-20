@@ -9,7 +9,6 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.text :recipe_content
       t.decimal :cost
       t.string :submitter
-      t.integer :submitter_id
       t.boolean :topsecret
       t.datetime :submitted_on
       t.timestamps

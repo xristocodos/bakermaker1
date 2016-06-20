@@ -4,8 +4,6 @@ class CreateIngredients < ActiveRecord::Migration[5.0]
       t.string   :name
       t.decimal  :pkg_cost
       t.string   :pkg_merchant
-      t.integer  :recipe_id
-      t.integer  :user_id
       t.datetime :last_bought
       t.timestamps
     end

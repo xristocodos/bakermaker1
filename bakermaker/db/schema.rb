@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20160617190443) do
     t.string   "name"
     t.decimal  "pkg_cost"
     t.string   "pkg_merchant"
-    t.integer  "recipe_id"
-    t.integer  "user_id"
     t.datetime "last_bought"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -31,12 +29,11 @@ ActiveRecord::Schema.define(version: 20160617190443) do
     t.string   "title"
     t.string   "alias"
     t.string   "link_url"
-    t.string   "props_to"
+    t.string   "shoutout_to"
     t.integer  "difficulty"
     t.text     "recipe_content"
     t.decimal  "cost"
     t.string   "submitter"
-    t.integer  "submitter_id"
     t.boolean  "topsecret"
     t.datetime "submitted_on"
     t.datetime "created_at",     null: false

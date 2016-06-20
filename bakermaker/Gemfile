@@ -22,17 +22,39 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+
+#Required for securely handling secrets
+#gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#gem 'carrierwave'
+
+#Required for uploading files
+#gem "paperclip", "~> 4.2"
+#gem 'aws-sdk', '< 2.0'
+
+#Added to allow background post-processing
+## Did not add any performance improvements so I removed
+# gem 'delayed_paperclip'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'prybaby'
+  gem 'rspec'
 end
 
 group :development do
@@ -47,3 +69,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+ruby '2.3.0'
