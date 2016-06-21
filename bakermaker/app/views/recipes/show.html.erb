@@ -1,0 +1,11 @@
+<h2> <%= @recipe.title %></h2>
+
+<h3>Ingredients</h2>
+
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li>
+    <%= "#{ingredient.name}" %><br><%= "Bought from #{pkg_merchant} for #{pkg_cost} on #{last_bought}!" %>
+  </li>
+<% end %>
+</ul>
