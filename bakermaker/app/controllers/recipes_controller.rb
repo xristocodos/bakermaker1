@@ -3,6 +3,10 @@ class RecipesController < ApplicationController
   # before_filter :authorize
   def show
     @recipe = Recipe.find(params[:id])
+    @total = 0
+    @recipe.ingredients.each do |ingredient|
+      @total += ingredient.pkg_cost
+    end
   end
 
   def index
@@ -17,6 +21,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    binding.pry
     @recipe = Recipe.create(recipe_params)
     redirect_to @recipe
   end

@@ -23,17 +23,12 @@ chocochips_tho = Recipe.create!(
 
 #INGREDIENTS
 chocochips_tho.ingredients.create!(
-  name: "goldmedal all-purpose dough",
-  pkg_cost: 2.49,
-  pkg_merchant: "walmart"
-)
-chocochips_tho.ingredients.create!(
   name: "unsalted butter",
   pkg_cost: 4.48,
   pkg_merchant: "walmart"
 )
 chocochips_tho.ingredients.create!(
-  name: "goldmedal all-purpose dough",
+  name: "goldmedal all-purpose flower",
   pkg_cost: 2.49,
   pkg_merchant: "walmart"
 )

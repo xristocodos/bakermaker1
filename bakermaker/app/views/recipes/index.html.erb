@@ -1,5 +1,7 @@
+<h1> Reciperia </h1>
+
 <ul>
 <% @recipes.each do |recipe| %>
-  <li><%= link_to recipe.title, recipe %></li>
+  <%= link_to recipe.title, recipe %><br>
 <% end %>
 </ul>

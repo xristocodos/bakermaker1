@@ -11,7 +11,6 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.string :submitter
       t.boolean :topsecret
       t.datetime :submitted_on
-      t.timestamps
     end
   end
 end
