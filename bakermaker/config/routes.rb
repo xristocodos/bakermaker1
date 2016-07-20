@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'registrations/new'
+
+  get 'registrations/create'
+
+  get 'invitations/new'
+
+  get 'invitations/create'
+
+  get 'invitations/destroy'
+
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -10,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
   #
   # #### GET RID OF ME
   #   # Login

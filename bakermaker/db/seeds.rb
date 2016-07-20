@@ -62,19 +62,3 @@ chocochips_tho.ingredients.create!(
   pkg_cost: 2.71,
   pkg_merchant: "walmart"
 )
-#
-# create_table "recipes", force: :cascade do |t|
-#   t.string   "title"
-#   t.string   "alias"
-#   t.string   "link_url"
-#   t.string   "props_to"
-#   t.integer  "difficulty"
-#   t.text     "recipe_content"
-#   t.decimal  "cost"
-#   t.string   "submitter"
-#   t.integer  "submitter_id"
-#   t.boolean  "topsecret"
-#   t.datetime "submitted_on"
-#   t.datetime "created_at",     null: false
-#   t.datetime "updated_at",     null: false
-# end
