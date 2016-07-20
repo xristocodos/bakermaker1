@@ -3,7 +3,11 @@
 one:
   email: MyString
   token: MyString
+  invitee: MyString
+  invited_by_id: 1
 
 two:
   email: MyString
   token: MyString
+  invitee: MyString
+  invited_by_id: 1
