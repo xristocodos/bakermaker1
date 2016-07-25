@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+my_user = User.new(name: "Johnny", email: "a@b.com", password: "pupp13s")
+my_user.save
+
+
 # http://www.marthastewart.com/344840/soft-and-chewy-chocolate-chip-cookies
 chocochips_tho = Recipe.create!(
   title: "Fire Chocochip Cookielopolouses",
@@ -23,17 +27,12 @@ chocochips_tho = Recipe.create!(
 
 #INGREDIENTS
 chocochips_tho.ingredients.create!(
-  name: "goldmedal all-purpose dough",
-  pkg_cost: 2.49,
-  pkg_merchant: "walmart"
-)
-chocochips_tho.ingredients.create!(
   name: "unsalted butter",
   pkg_cost: 4.48,
   pkg_merchant: "walmart"
 )
 chocochips_tho.ingredients.create!(
-  name: "goldmedal all-purpose dough",
+  name: "goldmedal all-purpose flower",
   pkg_cost: 2.49,
   pkg_merchant: "walmart"
 )
@@ -67,19 +66,3 @@ chocochips_tho.ingredients.create!(
   pkg_cost: 2.71,
   pkg_merchant: "walmart"
 )
-#
-# create_table "recipes", force: :cascade do |t|
-#   t.string   "title"
-#   t.string   "alias"
-#   t.string   "link_url"
-#   t.string   "props_to"
-#   t.integer  "difficulty"
-#   t.text     "recipe_content"
-#   t.decimal  "cost"
-#   t.string   "submitter"
-#   t.integer  "submitter_id"
-#   t.boolean  "topsecret"
-#   t.datetime "submitted_on"
-#   t.datetime "created_at",     null: false
-#   t.datetime "updated_at",     null: false
-# end

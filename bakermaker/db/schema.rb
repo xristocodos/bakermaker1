@@ -11,18 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620211931) do
+ActiveRecord::Schema.define(version: 20160722171129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.decimal  "pkg_cost"
     t.string   "pkg_merchant"
     t.datetime "last_bought"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  end
+
+  create_table "invitees", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.string   "name"
+    t.integer  "invited_by_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "proportions", force: :cascade do |t|
+    t.string   "amount"
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["ingredient_id"], name: "index_proportions_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_proportions_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -36,8 +60,17 @@ ActiveRecord::Schema.define(version: 20160620211931) do
     t.string   "submitter"
     t.boolean  "topsecret"
     t.datetime "submitted_on"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "invited_by_id"
+  end
+
+  add_foreign_key "proportions", "ingredients"
+  add_foreign_key "proportions", "recipes"
 end

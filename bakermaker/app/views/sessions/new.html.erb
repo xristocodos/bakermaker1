@@ -1,0 +1,14 @@
+<h1>BakerMaker Login</h1>
+<p>Please enter your information</p>
+
+
+<%= form_for @user, url: login_path(@user.name) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+  <%= f.submit("Sign in") %>
+<% end %>

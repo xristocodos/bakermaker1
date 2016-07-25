@@ -1,11 +1,15 @@
-<h2> <%= @recipe.title %></h2>
+<center>
+  <h1><%= @recipe.title %></h1>
+  Total Cost: <b>$<%= @total %></b>
+</center>
 
-<h3>Ingredients</h2>
-
-<ul>
+<h3><i>Ingredients </i></h2>
+<ol>
 <% @recipe.ingredients.each do |ingredient| %>
   <li>
-    <%= "#{ingredient.name}" %><br><%= "Bought from #{pkg_merchant} for #{pkg_cost} on #{last_bought}!" %>
+    <h4><%=ingredient.name%> / $<%=ingredient.pkg_cost %>@<%=ingredient.pkg_merchant%> </h4>
   </li>
 <% end %>
-</ul>
+</ol>
+
+<%= link_to '<< Back to All Recipes', :back %>
