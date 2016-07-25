@@ -1,26 +1,4 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
-This is where people will sign up.
-
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  Confirm: <%= f.password_field :password_confirmation %>
-  <br>
-
-  <%= f.submit("Sign up") %>
-<% end %>
-
-
-
-<!--vv stuff i jacked from another project...whats the URL field for? vv-->
-<!-- This is the new user registration form -->
-<%= form_for @user, url: registration_create_path, html: { multipart: true } do |f| %>
+Making new users can be found in Registrations#new
+This (was) where people will sign up.

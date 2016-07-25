@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
-    # temp for making a new user
-  end #end method 'new'
+
+  end
 
   def create
     # create the actual user acct

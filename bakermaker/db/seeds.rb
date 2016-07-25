@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+my_user = User.new(name: "Johnny", email: "a@b.com", password: "pupp13s")
+my_user.save
+
+
 # http://www.marthastewart.com/344840/soft-and-chewy-chocolate-chip-cookies
 chocochips_tho = Recipe.create!(
   title: "Fire Chocochip Cookielopolouses",

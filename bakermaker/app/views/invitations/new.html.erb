@@ -1,2 +1,16 @@
-<h1>Invitations#new</h1>
-<p>Find me in app/views/invitations/new.html.erb</p>
+<h1>Invite a friend to BakerMaker!</h1>
+
+
+<%= form_for @invitee, url: invite_path(@invitee.name) do |f| %>
+<!--add hidden for invited by-->
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.hidden_field :invited_by, value: session[:id] %>
+  <br>
+  <%= f.submit("Invite that mammerjammer") %>
+<% end %>

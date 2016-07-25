@@ -1,0 +1,8 @@
+<h1> Allllllll the invites sent out by <%= @current_user[:name] %></h1>
+
+<% @current_user_invitations.each do |inv| %>
+  <div><b>name/</b><%= inv.name %></div>
+  <div><b>email/</b><%= inv.email %></div>
+  <div><b>created lovingly on/</b><%= inv.created_at %></div>
+  <br>
+<% end %>
