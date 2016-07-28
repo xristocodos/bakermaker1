@@ -27,25 +27,22 @@ class SessionsController < ApplicationController
     # binding.pry
     user = User.find_by(name: user_params[:name]) ##DEBUG## NEEDS TO GET REQUIRE
 
-
-    if user == nil
-      flash[:warning] = "Invalid credentials! Check your username!"
+    if (user == nil) || !(user.authenticate(user_params[:password]))
+      flash[:warning] = "Invalid credentials!"
       redirect_to login_path
-    elsif user.authenticate(user_params[:password])
+    else   #if everything checks out
       session[:id] = user.id
       redirect_to home_path
     end
     # session[:user_id] = User.find_by(name: params[:user][:name]).id
 
-    if current_user
-      # redirect_to root_path
-      return root_url
-    else
-      # redirect_to login_path
-      return login_url
-    end
-
-
+    # if current_user
+    #   # redirect_to root_path
+    #   return root_url
+    # else
+    #   # redirect_to login_path
+    #   return login_url
+    # end
 
   end
 
