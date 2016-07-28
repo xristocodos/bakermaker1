@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722171129) do
+ActiveRecord::Schema.define(version: 20160728191944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,13 +52,8 @@ ActiveRecord::Schema.define(version: 20160722171129) do
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
     t.string   "alias"
-    t.string   "link_url"
-    t.string   "shoutout_to"
-    t.integer  "difficulty"
     t.text     "recipe_content"
-    t.decimal  "cost"
     t.string   "submitter"
-    t.boolean  "topsecret"
     t.datetime "submitted_on"
   end
 
