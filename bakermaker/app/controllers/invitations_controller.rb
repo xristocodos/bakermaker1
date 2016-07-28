@@ -6,17 +6,39 @@ class InvitationsController < ApplicationController
 
   def create #for creation of invitation in dv
     #this feels non-DRY and also messy af
+
     @invitee = Invitee.new(invitation_params)
     # @invitee[:name] = params[:invitee][:name]
     # @invitee[:email] = params[:invitee][:email]
 
     @invitee[:invited_by_id] = session[:id]
     @invitee[:token] = generate_unique_secure_token
-    @invitee.save
+
+    #not sure if this goes here or if it goes in the mailer
+    #@registration_url = "http://localhost:3000/register/" + @invitee[:token]
 
     #HERES WHERE WE INVOKE ACTIONMAILER
+    respond_to do |format|
+      if @invitee.save
 
-    redirect_to invitee_index_path
+        # Tell the UserMailer to send a welcome email after save
+        UserMailer.welcome_email(@invitee).deliver_now
+        flash[:notice] = "Invite was successfully sent!"
+        # return invite_url
+        format.html { redirect_to(invite_url) }
+        # format.json { render json: @invitee, status: :created, location: @invitee }
+      else
+        flash[:warning] = "Invite was not successfully sent!"
+        # return invite_url
+        format.html { render action: 'new' }
+        # format.json { render json: @invitee.errors, status: :unprocessable_entity }
+      end #end else
+    end #end respond_to
+
+
+    @invitee.save
+
+#    redirect_to invitee_index_path
 
   end
 
@@ -24,7 +46,6 @@ class InvitationsController < ApplicationController
     @current_user_invitations = []
     # for all invitees, where invited_by_id == current_user[:id]
     import_invitations
-    binding.pry
   end
 
   def destroy #for revoking/cancelling invite

@@ -26,24 +26,26 @@ class SessionsController < ApplicationController
     # user = User.find_by(name: params[:user][:name]) ##DEBUG## NEEDS TO GET REQUIRE
     # binding.pry
     user = User.find_by(name: user_params[:name]) ##DEBUG## NEEDS TO GET REQUIRE
-    # if !user
-    #   redirect_to login_path
-    # end
 
-    # if user.authenticate(params[:user][:password])
-    if user.authenticate(user_params[:password])
+
+    if user == nil
+      flash[:warning] = "Invalid credentials! Check your username!"
+      redirect_to login_path
+    elsif user.authenticate(user_params[:password])
       session[:id] = user.id
+      redirect_to home_path
     end
     # session[:user_id] = User.find_by(name: params[:user][:name]).id
 
-    puts "CHECK HERE TO MAKE SURE ERRYTING COPASETIC PRIOR TO REDIRECT"
-    binding.pry
-    #this should be done with strongparams
     if current_user
-      redirect_to root_path
+      # redirect_to root_path
+      return root_url
     else
-      redirect_to login_path
+      # redirect_to login_path
+      return login_url
     end
+
+
 
   end
 

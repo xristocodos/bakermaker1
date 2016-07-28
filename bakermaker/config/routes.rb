@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :recipes
   resources :friendships
-  
+
   get 'registrations/new'
   get 'registrations/create'
 
@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#show', as: 'home'
 
 
-
   #form 1: login
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
   #? add delete for revoking invite?#
 
   #form 3: sign up
-  get '/register', to: 'registrations#new', as: 'register'
+  get '/register/:token', to: 'registrations#new', as: 'register'
   post '/register', to: 'registration#create', as: 'register_create'
 
   #form 4: create a recipe

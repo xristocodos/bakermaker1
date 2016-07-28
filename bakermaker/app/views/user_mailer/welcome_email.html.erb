@@ -4,13 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to BakerMaker, <%= @user.name %></h1>
+    <h1>Welcome to BakerMaker, </h1>
     <p>
       You have successfully signed up for BakerMaker, (shoutout to the homie REFERRALUSER for the invite),
-      your username is: <%= @user.login %>.<br>
+      your username is: <%= @invitee[:email] %> !<br>
     </p>
     <p>
-      To login to the site, just click & gooooooo: <%= SIGNUPURL to signup page @REGISTRATIONS#NEW, WITH TOKEN as param %>.
+      To login to the site, just click & gooooooo: <%= link_to "Register!", @registration_url %>
+
     </p>
     <p>¡Buen provecho!</p>
   </body>
