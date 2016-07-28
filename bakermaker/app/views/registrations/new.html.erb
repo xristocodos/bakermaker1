@@ -1,23 +1,32 @@
-<h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
 
-<h3>Congrats! ###NAME### has extended you an invite to BakerMaker!</h3>
+
+<h1>Congrats, <%= @invited[:name].capitalize %>!</h1>
+<h2><%= @inviter[:name].capitalize %> has extended you an invite to BakerMaker!</h2>
 
 <%= form_for @user, url: register_create_path do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :name %>:
+  <%= f.text_field :name, value: @invited[:name] %>
   <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
+  <%= f.label :email %>:
+  <%= f.text_field :email, value: @invited[:email] %>
+  <br><br>
 
-  <%= f.label :password %>
+  <%= f.label :password %>:
   <%= f.password_field :password %>
+  <br>
   Confirm: <%= f.password_field :password_confirmation %>
   <br>
 
-  <%= f.hidden_field :invited_by_id, value: @invitee[:invited_by_id] %>
+  <%= f.hidden_field :invited_by_id, value: @user[:invited_by_id] %>
 
   <%= f.submit("Sign up") %>
 <% end %>
+
+<!--
+
+@invite_original = Invitee.find_by(token: @token)
+@invited_name = @invite_original[:name]
+
+@inviter_id = @invite_original[:invited_by_id]
+@inviter_name = User.find_by(id: @inviter_id)[:name] -->
