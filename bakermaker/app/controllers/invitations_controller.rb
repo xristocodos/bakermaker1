@@ -8,14 +8,9 @@ class InvitationsController < ApplicationController
     #this feels non-DRY and also messy af
 
     @invitee = Invitee.new(invitation_params)
-    # @invitee[:name] = params[:invitee][:name]
-    # @invitee[:email] = params[:invitee][:email]
 
     @invitee[:invited_by_id] = session[:id]
     @invitee[:token] = generate_unique_secure_token
-
-    #not sure if this goes here or if it goes in the mailer
-    #@registration_url = "http://localhost:3000/register/" + @invitee[:token]
 
     #HERES WHERE WE INVOKE ACTIONMAILER
     respond_to do |format|
@@ -35,12 +30,9 @@ class InvitationsController < ApplicationController
       end #end else
     end #end respond_to
 
-
     @invitee.save
-
-#    redirect_to invitee_index_path
-
   end
+
 
   def index
     @current_user_invitations = []
@@ -48,11 +40,12 @@ class InvitationsController < ApplicationController
     import_invitations
   end
 
+
   def destroy #for revoking/cancelling invite
   end
 
 
-
+  ##################################
   private
 
   def import_invitations
